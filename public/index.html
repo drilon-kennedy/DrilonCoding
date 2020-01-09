@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <meta name="description" content="A jewish calendar app." />
+    <title>Jewish Calender</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <!--needs to be changed wait what??-->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Jewish Calendar PWA" />
+    <link rel="apple-touch-icon" href="/images/icons/icon-152x152.png" />
+    <meta name="theme-color" content="#2F3BA2" /><!--Do I need this?-->
+    <script src="https://www.hebcal.com/etc/hdate-en.js"></script>
+  </head>
+  <body><!--drop menu for cities--> 
+    <br>
+   
+    <button onclick="holidays()">
+     Holidays
+    </button>
+    
+      <button onclick="shabbat()">
+     Shabbat
+    </button>
+    
+    <div id="card"></div><!--shows the non-preJSON data-->
+    <div id="content"></div>
+    <div class="grid-container">
+      <!--do stuff in here before designing in CSS-->
+      <div id="weather-template" class="weather-card" hidden>
+        <div class="card-spinner">
+          <svg viewbox="0 0 32 32" width="32" height="32">
+            <circle cx="16" cy="16" r="14" fill="none"></circle>
+          </svg>
+        </div>
+        <button class="remove-city">&times;</button>
+        
+      </div>
+    </div>
+
+   <!--drop menu-->
+    <button id="butAdd" class="fab" aria-label="Add">
+      <span class="icon add"></span>
+    </button>
+      <div id="addDialogContainer">
+      <div class="dialog">
+        <div class="dialog-title">Add New City</div>
+        <div class="dialog-body">
+          <select id="selectCityToAdd" aria-label="city to add">
+            <option value="6174041">Victoria, BC</option>
+            <option value="51.5287718,-0.2416815">London, UK</option>
+            <option value="43.2557,-79.8711">Hamilton, Ont</option>
+            <option value="40.7128,-74.0060">New York City, NY</option>
+            <option value="45.5017,-73.5673">Montreal, Qc</option>
+            <option value="48.8566,2.3522">Paris, France</option>
+            <option value="32.0853, 34.7818">Tel Aviv, Israel</option>
+            <option value="28.6139,77.2090">New Delhi, India</option>
+            <option value="35.9375,14.3754">Malta, Italy</option>
+            <option value="-33.4489,-70.6693">Santiago, Chile</option>
+          </select>
+        </div>
+        <div class="dialog-buttons">
+          <button id="butDialogCancel" class="button">Cancel</button>
+          <button id="butDialogAdd" class="button">Add</button>
+        </div>
+      </div>
+    </div>
+    
+    <script src="client.js"></script>
+    <script src="install.js"></script>
+    <script src="addserviceworker.js"></script>
+  </body>
+</html>
+
+
+
+
+<!--https://www.hebcal.com/home/219/hebrew-date-converter-rest-api--><!--the url to the page with the date converter-->
